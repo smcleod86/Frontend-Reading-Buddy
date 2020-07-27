@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
 import './App.css';
 import Navbar from './components/Navbar';
@@ -10,6 +10,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 
 import Footer from './components/Footer';
+import ProfileFriends from './components/ProfileFriends';
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
           </Route>
           <Route exact path='/login'>
             <Login />
+          </Route>
+          <Route expact path='/profile/friends'>
+            <Profile />
+            <ProfileFriends />
           </Route>
         </Switch>
       </Router>
