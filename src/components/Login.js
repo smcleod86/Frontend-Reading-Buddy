@@ -18,7 +18,6 @@ export default function Login() {
                 <br></br>
                 <input type="submit" value="Submit" />
                 <button>Clear</button>
-
             </form>
             <p>Sign-up</p>
         </div>
