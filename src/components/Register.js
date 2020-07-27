@@ -25,7 +25,8 @@ export default function Register() {
             <br></br>
             <input type="submit" value="Submit" />
             <button>Clear</button>
-            <p>Sign-up</p>
+            <h3>Already have an Account?</h3>
+            <a href="/login">Sign-in</a>
         </form>
     )
 }
