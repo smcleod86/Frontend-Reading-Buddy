@@ -13,10 +13,10 @@ const Navbar = (props) => {
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nab mr-auto">
                         <li className="nav-item">
-                            <NavLink className="nav-link" exact to = "/">Home</NavLink>
+                            <NavLink className="nav-link" exact to = "/" >Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to = "/books">books</NavLink>
+                            <NavLink className="nav-link" to = "/books" >Books</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to = "/login">Login</NavLink>
