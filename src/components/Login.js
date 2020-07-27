@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 export default function Login() {
     return (
         <div>
@@ -19,7 +17,8 @@ export default function Login() {
                 <input type="submit" value="Submit" />
                 <button>Clear</button>
             </form>
-            <p>Sign-up</p>
+            <h3>Need an Account?</h3>
+            <a href="/register">Sign-up</a>
         </div>
     )
 }
