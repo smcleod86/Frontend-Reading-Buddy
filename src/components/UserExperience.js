@@ -1,4 +1,27 @@
+/*
+this component needs to be passed props in the form:
+{
+    bookInfo: {
+        title: "blah",
+        author: "blah",
+        genre: "blahblah"
+        summary: "blah"
+    },
+    userExperienceInfo: {
+        rating: "blah",
+        review: "blah",
+        date_started: "blah",
+        date_finished: "blah"
+    }
+
+}
+*/
+
+
+
 import React , { useState } from 'react'
+import Axios from 'axios';
+import { findAllByPlaceholderText } from '@testing-library/react'
 
 export default function UserExperience({bookInfo, userExperienceInfo}) {
     const ratingOptions = ["1", "2", "3", "4", "5"];
@@ -6,8 +29,6 @@ export default function UserExperience({bookInfo, userExperienceInfo}) {
     let [ review, setReview ] = useState(userExperienceInfo.review);
     let [ dateStarted, setDateStarted ] = useState(userExperienceInfo.date_started);
     let [ dateFinished, setDateFinished ] = useState(userExperienceInfo.date_finished);
-    console.log(`rating: ${rating}, props: ${rating}`);
-    console.log(`dateStarted: ${dateStarted}`)
 
     const handleRating = (e) => {
         setRating(e.target.value)
@@ -21,6 +42,22 @@ export default function UserExperience({bookInfo, userExperienceInfo}) {
     const handleDateFinished = (e) => {
         setDateFinished(e.target.value)
     }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const userExperienceData = {
+            rating: rating,
+            review: review,
+            date_started: dateStarted,
+            date_finished: dateFinished
+        }
+        Axios.put(`${process.env.REACT_APP_SERVER_URL}/UserExperiences/${userExperienceInfo.id}`, userExperienceData)
+            .then(res => {
+                console.log(`Update response from backend: ${JSON.stringify(res)}`)
+            })
+            .catch(err => {
+                console.log(`error submitting update request: ${err}`)
+            })
+    }
 
     return (
         <>
@@ -32,7 +69,7 @@ export default function UserExperience({bookInfo, userExperienceInfo}) {
                 <p>Summary: {bookInfo.summary}</p>
             </div>
             <div className="container right-panel">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="rating">Rating:</label>
                     <select id="rating"  name="rating" defaultValue={rating} onChange={handleRating}>
                         { ratingOptions.map(ratingOption => {
