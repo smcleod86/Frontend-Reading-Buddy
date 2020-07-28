@@ -10,8 +10,11 @@ import Register from './components/Register';
 import Login from './components/Login';
 
 import Footer from './components/Footer';
-import ProfileFriends from './components/ProfileFriends';
-
+import ProfileFriends from './components/profile_components/ProfileFriends';
+import ProfileReviews from './components/profile_components/ProfileReviews';
+import ProfileHaveRead from './components/profile_components/ProfileHaveRead';
+import ProfileCurrentlyReading from './components/profile_components/ProfileCurrentlyReading';
+import ProfileWishlist from './components/profile_components/ProfileWishlist';
 function App() {
   return (
     <div className="App">
@@ -36,6 +39,26 @@ function App() {
           <Route expact path='/profile/friends'>
             <Profile />
             <ProfileFriends />
+          </Route>
+          <Route expact path='/profile/reviews'>
+            <Profile />
+            <ProfileReviews />
+          </Route>
+          <Route expact path='/profile/haveread'>
+            <Profile />
+            <ProfileHaveRead />
+          </Route>
+          <Route expact path='/profile/wishlist'>
+            <Profile />
+            <ProfileWishlist/>
+          </Route>
+          <Route expact path='/profile/currentlyreading'>
+            <Profile />
+            <ProfileCurrentlyReading />
+          </Route>
+          <Route expact path='/profile/wishlist'>
+            <Profile />
+            <ProfileWishlist/>
           </Route>
         </Switch>
       </Router>
