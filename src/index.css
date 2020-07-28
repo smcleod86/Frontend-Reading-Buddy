@@ -12,3 +12,7 @@ code {
     monospace;
 }
 
+.nav-item {
+  display: inline-block;
+  margin-left: 1.5em;
+}
