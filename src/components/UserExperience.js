@@ -17,11 +17,11 @@ this component needs to be passed props in the form:
 }
 */
 
-
+// TODO: Component should redirect backwards after form submission, but that looks like it will take more work in higher-level files
+// TODO: Style
 
 import React , { useState } from 'react'
 import Axios from 'axios';
-import { findAllByPlaceholderText } from '@testing-library/react'
 
 export default function UserExperience({bookInfo, userExperienceInfo}) {
     const ratingOptions = ["1", "2", "3", "4", "5"];
