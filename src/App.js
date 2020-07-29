@@ -73,8 +73,6 @@ function App() {
       <Router>
         <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated}/>
         <Switch>
-
-          </Route>
           <Route exact path='/readerexperiences/edit'>
             <UserExperience 
               bookInfo={{title: "The Fellowship of the Ring", author: "JRR Tolkien", genre: "nonfiction", summary: "a teenager goes on a walk barefoot"}} 
@@ -91,11 +89,28 @@ function App() {
           <Route exact path='/profile' component = {Profile} />
           <Route path='/register' component = {Register} />
           <Route path='/login' render ={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
-          <PrivateRoute path='/profile' component = {Profile} user={currentUser} />
-          <PrivateRoute path='/profile/friends' component = {Profile, ProfileFriends} user={currentUser} />
-          <PrivateRoute path='/profile/reviews' component = {Profile, ProfileReviews} user={currentUser} />
-          <PrivateRoute path='/profile/haveread' component = {Profile, ProfileHaveRead} user={currentUser} />
-          <PrivateRoute path='/profile/wishlist' component = {Profile, ProfileWishlist} user={currentUser} />
+          {/* <PrivateRoute path='/profile' render = {(props) => <Profile {...props} user={currentUser} /> }/> */}
+
+          <Route exact path='/profile/friends'>
+            <Profile user={currentUser} />
+            <ProfileFriends friends={currentUser.friends} />
+          </Route>
+
+          <Route path='/profile/reviews'>
+            <Profile user={currentUser} /> 
+            <ProfileReviews reviews={currentUser.reviews} />
+          </Route>
+
+          <Route path='/profile/haveread'>
+            <Profile user={currentUser}/> 
+            <ProfileHaveRead read={currentUser.read}/> 
+          </Route>
+
+          <Route path='/profile/wishlist'>
+            <Profile user={currentUser} />
+            <ProfileWishlist wishlist={currentUser.wishlist} />
+          </Route>
+
           <Route path='/' exact component={Home} />
 
         </Switch>
