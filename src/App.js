@@ -93,22 +93,22 @@ function App() {
 
           <Route exact path='/profile/friends'>
             <Profile user={currentUser} />
-            <ProfileFriends friends={currentUser.friends} />
+            <ProfileFriends />
           </Route>
 
           <Route path='/profile/reviews'>
             <Profile user={currentUser} /> 
-            <ProfileReviews reviews={currentUser.reviews} />
+            <ProfileReviews />
           </Route>
 
           <Route path='/profile/haveread'>
             <Profile user={currentUser}/> 
-            <ProfileHaveRead read={currentUser.read}/> 
+            <ProfileHaveRead /> 
           </Route>
 
           <Route path='/profile/wishlist'>
             <Profile user={currentUser} />
-            <ProfileWishlist wishlist={currentUser.wishlist} />
+            <ProfileWishlist />
           </Route>
 
           <Route path='/' exact component={Home} />
