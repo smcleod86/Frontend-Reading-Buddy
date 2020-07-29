@@ -4,10 +4,10 @@ import { NavLink, Link } from 'react-router-dom'
 
 const Navbar = (props) => {
     return(
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar">
             <div className="container">
-                <div className="collapse navbar-collapse">
-                    <ul className="navbar-nab mr-auto">
+                <div className="">
+                    <ul className="nav-items">
                         <li className="nav-item">
                             <NavLink className="nav-link" exact to = "/" >Home</NavLink>
                         </li>
