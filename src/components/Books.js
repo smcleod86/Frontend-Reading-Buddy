@@ -51,8 +51,8 @@ export default function Books() {
             <div>
                 <Link to={`/book/${book.id}`}>
                 Title: {book.volumeInfo.title} &nbsp;&nbsp;
-                Published: {book.volumeInfo.publishedDate} &nbsp;&nbsp;
-                Authors: {authors}
+                Authors: {authors} &nbsp;&nbsp;
+                Published: {book.volumeInfo.publishedDate} 
                 </Link>
             </div>
         )
