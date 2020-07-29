@@ -8,11 +8,8 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import Login from './components/Login';
-
 import UserExperience from './components/UserExperience';
-
 import Footer from './components/Footer';
-
 import SearchBookDetails from './components/SearchBookDetails';
 import ProfileFriends from './components/profile_components/ProfileFriends';
 import ProfileReviews from './components/profile_components/ProfileReviews';
@@ -33,8 +30,8 @@ function App() {
             <Books />
           </Route>
           <Route exact path='/book/:id'>
-              <SearchBookDetails />
-            </Route>
+            <SearchBookDetails />
+          </Route>
           <Route exact path='/profile'>
             <Profile />
           </Route>

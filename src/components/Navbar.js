@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
@@ -25,9 +24,6 @@ const Navbar = (props) => {
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to = "/register">Register</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" to = "/editblahblah">Working On This</NavLink>
                         </li>
                     </ul>
                 </div>
