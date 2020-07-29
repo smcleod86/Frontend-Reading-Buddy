@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar';
-
 import Books from './components/Books';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import Login from './components/Login';
-
 import Footer from './components/Footer';
+import SearchBookDetails from './components/SearchBookDetails';
 
 function App() {
   return (
@@ -23,6 +23,9 @@ function App() {
           <Route exact path='/books'>
             <Books />
           </Route>
+          <Route exact path='/book/:id'>
+              <SearchBookDetails />
+            </Route>
           <Route exact path='/profile'>
             <Profile />
           </Route>
