@@ -13,6 +13,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 
 import UserExperience from './components/UserExperience';
+import FindFriends from './components/FindFriends';
 
 import Footer from './components/Footer';
 
@@ -72,6 +73,19 @@ function App() {
       <Router>
         <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated}/>
         <Switch>
+
+          </Route>
+          <Route exact path='/readerexperiences/edit'>
+            <UserExperience 
+              bookInfo={{title: "The Fellowship of the Ring", author: "JRR Tolkien", genre: "nonfiction", summary: "a teenager goes on a walk barefoot"}} 
+              userExperienceInfo={{rating: "3", review: "That was a dreadful idea", date_started: "2020-04-02", date_finished: "2020-04-20"}}
+            />
+          </Route>
+  
+          <Route exact path='/users'>
+            <FindFriends />
+          </Route>
+
           <Route path='/books' component = {Books} />
           <Route exact path='/book/:id' component = {SearchBookDetails} />
           <Route exact path='/profile' component = {Profile} />
@@ -83,6 +97,7 @@ function App() {
           <PrivateRoute path='/profile/haveread' component = {Profile, ProfileHaveRead} user={currentUser} />
           <PrivateRoute path='/profile/wishlist' component = {Profile, ProfileWishlist} user={currentUser} />
           <Route path='/' exact component={Home} />
+
         </Switch>
       </Router>
       <Footer />
