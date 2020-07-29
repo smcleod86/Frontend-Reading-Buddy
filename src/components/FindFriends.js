@@ -3,7 +3,8 @@ import UserRow from './users_components/UserRow.js'
 import Axios from 'axios';
 
 export default function FindFriends() {
-    const searchResults = [{name: "bob", id:  "0294r2r"}, {name: "Erika", id: "2490fds"}];
+    let sampleData = [{name: "bob", id:  "0294r2r"}, {name: "Erika", id: "2490fds"}];
+    let [userList, setUserList ] = useState(sampleData);
     let [ query, setQuery ] = useState("");
     const handleQuery = (e) => {
         setQuery(e.target.value);
@@ -14,17 +15,19 @@ export default function FindFriends() {
         /*
         Axios.get(`${process.env.REACT_APP_SERVER_URL}/users?query=${query}`)
             .then(searchResults => {
+                setUserList(searchResults);
             })
             .catch(err => {
                 console.log(`Error getting search results: ${err}`);
             })
         */
+       setUserList([{name: "Mel", id: "2904ar"}, {name: "Sal", id: "pfads90"}])
     }
     return(
         <>
             <div>
                 <h2> Search Results </h2>
-                {searchResults.map(user => {
+                {userList.map(user => {
                     return <UserRow user={user} friend={true}  />
                 })}
             </div>
