@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 
 export default function UserRow(props) {
     const handleClick = () => {
-        // TODO: HOW TO ACCESS USER ID?
         /*
         Axios.get(`/users/${}/update`, {friends: props.user.id})
             .then(updateResult => {
@@ -14,11 +13,11 @@ export default function UserRow(props) {
                 console.log(`Error adding friend: ${err}`);
             })
         */
-       console.log(`Clicked on Add Friend for ${props.user.name}`);
+       console.log(`Clicked on Add Friend for ${props.user.first_name} ${props.user.last_name}`);
     }
     return(
         <div>
-            <NavLink className="nav-link" to={`/profile/${props.user.id}`}>{props.user.name}</NavLink>
+            <NavLink className="nav-link" to={`/profile/${props.user.id}`}>{props.user.first_name} {props.user.last_name}</NavLink>
             <button onClick={handleClick}>Add Friend</button>
         </div>
     )
