@@ -82,7 +82,7 @@ function App() {
           <PrivateRoute path='/profile/reviews' component = {Profile, ProfileReviews} user={currentUser} />
           <PrivateRoute path='/profile/haveread' component = {Profile, ProfileHaveRead} user={currentUser} />
           <PrivateRoute path='/profile/wishlist' component = {Profile, ProfileWishlist} user={currentUser} />
-          <PrivateRoute path='/' exact component={Home} />
+          <Route path='/' exact component={Home} />
         </Switch>
       </Router>
       <Footer />
