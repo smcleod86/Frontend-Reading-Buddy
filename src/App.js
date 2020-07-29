@@ -72,17 +72,17 @@ function App() {
       <Router>
         <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated}/>
         <Switch>
-          <Route path='/books' component = { Books } />
+          <Route path='/books' component = {Books} />
           <Route exact path='/book/:id' component = {SearchBookDetails} />
-          <Route exact path='/profile' component = { Profile } />
-          <Route path='/register' component = { Register } />
-          <Route path='/login' render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
-          <PrivateRoute path='/profile' component={ Profile } user={currentUser} />
-          <Route expact path='/profile/friends' component = { Profile, ProfileFriends } user={currentUser} />
-          <Route expact path='/profile/reviews' component = {Profile, ProfileReviews } user={currentUser} />
-          <Route expact path='/profile/haveread' component = {Profile, ProfileHaveRead} user={currentUser} />
-          <Route expact path='/profile/wishlist' component = {Profile, ProfileWishlist } user={currentUser} />
-          <Route path='/' exact component={ Home } />
+          <Route exact path='/profile' component = {Profile} />
+          <Route path='/register' component = {Register} />
+          <Route path='/login' render ={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
+          <PrivateRoute path='/profile' component = {Profile} user={currentUser} />
+          <PrivateRoute path='/profile/friends' component = {Profile, ProfileFriends} user={currentUser} />
+          <PrivateRoute path='/profile/reviews' component = {Profile, ProfileReviews} user={currentUser} />
+          <PrivateRoute path='/profile/haveread' component = {Profile, ProfileHaveRead} user={currentUser} />
+          <PrivateRoute path='/profile/wishlist' component = {Profile, ProfileWishlist} user={currentUser} />
+          <PrivateRoute path='/' exact component={Home} />
         </Switch>
       </Router>
       <Footer />
