@@ -8,6 +8,9 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import Login from './components/Login';
+
+import UserExperience from './components/UserExperience';
+
 import Footer from './components/Footer';
 
 import SearchBookDetails from './components/SearchBookDetails';
