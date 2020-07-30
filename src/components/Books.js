@@ -55,7 +55,7 @@ export default function Books() {
         })
         return (
             <div>
-                <Link to={`/book/${book.id}`}>
+                <Link to={`/book/${book.id}?title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}`}>
                 Title: {book.volumeInfo.title} &nbsp;&nbsp;
                 Authors: {authors} &nbsp;&nbsp;
                 Published: {book.volumeInfo.publishedDate} 
