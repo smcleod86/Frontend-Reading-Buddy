@@ -1,4 +1,5 @@
-import React, { useEffect, useReducer, useRefresh } from 'react'
+import React, { useEffect, useReducer, useRefresh, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import ProfileFriends from '../components/profile_components/ProfileFriends'
 import axios from 'axios'
 
@@ -9,11 +10,12 @@ export default function Profile(props) {
     let { id } = useParams()
 
     useEffect(() => {
+        console.log("in profile.js useEffect")
         setRefresh(false)
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${id}`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${id}`)
             .then(response => {
-                if (response.satus === 200) {
-                    setFriends(response.data)
+                if (response.status === 200) {
+                    props.setProfileInfo(response.data)
                 } else {
                     setError(response.statusText)
                 }
@@ -22,14 +24,7 @@ export default function Profile(props) {
             .catch (err => {
                 setError(err.message)
             })
-    
-            let friendList = friends.length < 1 ?
-                <h3>You currently have no friends.</h3> :
-                friends.map((friend, i) => (
-                    {friendList}
-                ))
     }, [id]) 
-
     return (
         <div>
             <p>Number of books read this week: {Math.floor(Math.random() * 3)} </p>
@@ -39,6 +34,7 @@ export default function Profile(props) {
             <a href='/profile/reviews'>See my Reviews</a><br></br>
             <a href='/profile/wishlist'>Want to read</a><br></br>
             <a href='/profile/haveread'>Have read</a>
+            {JSON.stringify(props)}
         </div>
     )
 }
