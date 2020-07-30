@@ -21,6 +21,7 @@ import ProfileFriends from './components/profile_components/ProfileFriends';
 import ProfileReviews from './components/profile_components/ProfileReviews';
 import ProfileHaveRead from './components/profile_components/ProfileHaveRead';
 import ProfileWishlist from './components/profile_components/ProfileWishlist';
+import Axios from 'axios';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -37,6 +38,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App() {
   let [currentUser, setCurrentUser] = useState("")
   let [isAuthenticated, setIsAuthenticated] = useState(true)
+  let [profileInfo, setProfileInfo] = useState({})
 
   useEffect(() => {
     let token;
@@ -80,33 +82,33 @@ function App() {
           </Route>
   
           <Route exact path='/users'>
-            <FindFriends />
+            <FindFriends currentUser={currentUser}/>
           </Route>
 
           <Route path='/books' component = {Books} />
           <Route exact path='/book/:id' component = {SearchBookDetails} />
-          <Route exact path='/profile' component = {Profile} />
+          <Route exact path='/profile/:id' component = {Profile} />
           <Route path='/register' component = {Register} />
           <Route path='/login' render ={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
           {/* <PrivateRoute path='/profile' render = {(props) => <Profile {...props} user={currentUser} /> }/> */}
 
           <Route exact path='/profile/friends'>
-            <Profile user={currentUser} />
+            <Profile setProfileInfo={setProfileInfo} currentUser={currentUser} />
             <ProfileFriends />
           </Route>
 
           <Route path='/profile/reviews'>
-            <Profile user={currentUser} /> 
+            <Profile setProfileInfo={setProfileInfo} currentUser={currentUser} /> 
             <ProfileReviews />
           </Route>
 
           <Route path='/profile/haveread'>
-            <Profile user={currentUser}/> 
+            <Profile setProfileInfo={setProfileInfo} currentUser={currentUser}/> 
             <ProfileHaveRead /> 
           </Route>
 
           <Route path='/profile/wishlist'>
-            <Profile user={currentUser} />
+            <Profile setProfileInfo={setProfileInfo} currentUser={currentUser} />
             <ProfileWishlist />
           </Route>
 
