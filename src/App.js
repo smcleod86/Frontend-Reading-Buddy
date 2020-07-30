@@ -73,8 +73,6 @@ function App() {
       <Router>
         <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated}/>
         <Switch>
-
-          </Route>
           <Route exact path='/readerexperiences/edit'>
             <UserExperience 
               bookInfo={{title: "The Fellowship of the Ring", author: "JRR Tolkien", genre: "nonfiction", summary: "a teenager goes on a walk barefoot"}} 
