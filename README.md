@@ -38,7 +38,7 @@ Reading Buddy connects readers with their friends and even allows new friendship
 ## Wire Frames: 
 
 ## The Team:
-
+![The Team](./public/Team.png?raw=true)
 ### Coming Soon:
 
 - See books based on:
