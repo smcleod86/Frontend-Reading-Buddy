@@ -43,7 +43,7 @@ const Login = (props) => {
       setPassword('')
     }
   
-    if (props.user) return <Redirect to="/profile" user={props.user} />
+    if (props.user) return <Redirect to="/profile/:id" user={props.user} />
 
     return (
         <div>

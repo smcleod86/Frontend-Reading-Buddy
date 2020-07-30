@@ -25,16 +25,18 @@ export default function Profile(props) {
                 setError(err.message)
             })
     }, [id]) 
+    console.log(props.profileInfo)
     return (
         <div>
+            {props.currentUser.user_name}
+        
             <p>Number of books read this week: {Math.floor(Math.random() * 3)} </p>
             <p>Number of books read this month: {Math.floor(Math.random() * 10)}  </p>
             <p>Currently reading: </p>
-            <a href='/profile/friends'>See my Friends List</a><br></br>
-            <a href='/profile/reviews'>See my Reviews</a><br></br>
-            <a href='/profile/wishlist'>Want to read</a><br></br>
-            <a href='/profile/haveread'>Have read</a>
-            {JSON.stringify(props)}
+            <a href='/profile/:id/friends'>Friends</a><br></br>
+            <a href='/profile/:id/reviews'>Reviews</a><br></br>
+            <a href='/profile/:id/wishlist'>Wishlist</a><br></br>
+            <a href='/profile/:id/haveread'>Books I've Read</a><br></br>
         </div>
     )
 }
