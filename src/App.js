@@ -87,29 +87,31 @@ function App() {
 
           <Route path='/books' component = {Books} />
           <Route exact path='/book/:id' component = {SearchBookDetails} />
-          <Route exact path='/profile/:id' component = {Profile} />
+          <Route exact path='/profile/:id'>
+            <Profile profileInfo={profileInfo} setProfileInfo={setProfileInfo} currentUser={currentUser} />
+          </Route>
           <Route path='/register' component = {Register} />
           <Route path='/login' render ={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
           {/* <PrivateRoute path='/profile' render = {(props) => <Profile {...props} user={currentUser} /> }/> */}
 
           <Route exact path='/profile/friends'>
-            <Profile setProfileInfo={setProfileInfo} currentUser={currentUser} />
-            <ProfileFriends />
+            <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
+            <ProfileFriends profileInfo={profileInfo} />
           </Route>
 
           <Route path='/profile/reviews'>
-            <Profile setProfileInfo={setProfileInfo} currentUser={currentUser} /> 
-            <ProfileReviews />
+            <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} /> 
+            <ProfileReviews profileInfo={profileInfo} />
           </Route>
 
           <Route path='/profile/haveread'>
-            <Profile setProfileInfo={setProfileInfo} currentUser={currentUser}/> 
-            <ProfileHaveRead /> 
+            <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser}/> 
+            <ProfileHaveRead profileInfo={profileInfo} /> 
           </Route>
 
           <Route path='/profile/wishlist'>
-            <Profile setProfileInfo={setProfileInfo} currentUser={currentUser} />
-            <ProfileWishlist />
+            <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
+            <ProfileWishlist profileInfo={profileInfo} />
           </Route>
 
           <Route path='/' exact component={Home} />
