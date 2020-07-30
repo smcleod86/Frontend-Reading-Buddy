@@ -1,11 +1,11 @@
-import React, { useEffect, useReducer, useRefresh } from 'react'
-import ProfileFriends from '../components/profile_components/ProfileFriends'
+import React, { useEffect, useState, useParams } from 'react'
 import axios from 'axios'
 
 export default function Profile(props) {
     const [friends, setFriends] = useState([])
     const [error, setError] = useState(null)
     const [refresh, setRefresh] = useState(false)
+
     let { id } = useParams()
 
     useEffect(() => {
@@ -22,12 +22,6 @@ export default function Profile(props) {
             .catch (err => {
                 setError(err.message)
             })
-    
-            let friendList = friends.length < 1 ?
-                <h3>You currently have no friends.</h3> :
-                friends.map((friend, i) => (
-                    {friendList}
-                ))
     }, [id]) 
 
     return (
@@ -42,3 +36,5 @@ export default function Profile(props) {
         </div>
     )
 }
+
+
