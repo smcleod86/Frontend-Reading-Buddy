@@ -71,7 +71,7 @@ const Register = () => {
             <br></br>
             <label>
                 Username:
-                <input type="text" name="user_name" name="last_name" value={last_name} onChange={handleUserName} />
+                <input type="text" name="user_name" name="user_name" value={user_name} onChange={handleUserName} />
             </label>
             <br></br>
             <label>
