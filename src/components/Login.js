@@ -37,6 +37,11 @@ const Login = (props) => {
         })
         .catch(err => console.log(err));
     }
+
+    let handleClear = (e) => {
+      setEmail('')
+      setPassword('')
+    }
   
     if (props.user) return <Redirect to="/profile" user={props.user} />
 
@@ -54,7 +59,7 @@ const Login = (props) => {
                 </label>
                 <br></br>
                 <input type="submit" value="Submit" />
-                <button>Clear</button>
+                <button onClick={handleClear}>Clear</button>
             </form>
             <h3>Need an Account?</h3>
             <a href="/register">Sign-up</a>

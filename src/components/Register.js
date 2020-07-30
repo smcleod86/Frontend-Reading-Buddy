@@ -55,6 +55,15 @@ const Register = () => {
     }
   }
 
+  let handleClear = (e) => {
+    setFirstName('')
+    setLastName('')
+    setUserName('')
+    setEmail('')
+    setPassword('')
+    setPassword2('')
+  }
+
   if (redirect) return <Redirect to="/login" />
 
     return (
@@ -90,7 +99,7 @@ const Register = () => {
             </label>
             <br></br>
             <input type="submit" value="Submit" />
-            <button>Clear</button>
+            <button onClick={handleClear}>Clear</button>
             <h3>Already have an Account?</h3>
             <a href="/login">Sign-in</a>
         </form>
