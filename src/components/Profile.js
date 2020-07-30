@@ -1,6 +1,34 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer, useRefresh } from 'react'
+import ProfileFriends from '../components/profile_components/ProfileFriends'
+import axios from 'axios'
 
-export default function Profile() {
+export default function Profile(props) {
+    const [friends, setFriends] = useState([])
+    const [error, setError] = useState(null)
+    const [refresh, setRefresh] = useState(false)
+    let { id } = useParams()
+
+    useEffect(() => {
+        setRefresh(false)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/user/${id}`)
+            .then(response => {
+                if (response.satus === 200) {
+                    setFriends(response.data)
+                } else {
+                    setError(response.statusText)
+                }
+                console.log(response)
+            })
+            .catch (err => {
+                setError(err.message)
+            })
+    
+            let friendList = friends.length < 1 ?
+                <h3>You currently have no friends.</h3> :
+                friends.map((friend, i) => (
+                    {friendList}
+                ))
+    }, [id]) 
 
     return (
         <div>

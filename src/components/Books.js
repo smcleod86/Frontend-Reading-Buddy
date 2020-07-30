@@ -5,15 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Books() {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
-    const [refresh, setRefresh] = useState(false)
     const [searchParam, setSearchParam] = useState()
-
-    // call to API to get all books
-    useEffect(() => {
-        setRefresh(false)
-        // Call the server
-
-    }, [])
 
     const handleSearch = (e) => {
         console.log(e.target.value)
