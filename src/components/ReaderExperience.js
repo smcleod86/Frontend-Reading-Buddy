@@ -7,7 +7,7 @@ this component needs to be passed props in the form:
         genre: "blahblah"
         summary: "blah"
     },
-    userExperienceInfo: {
+    readerExperienceInfo: {
         rating: "blah",
         review: "blah",
         date_started: "blah",
@@ -23,12 +23,12 @@ this component needs to be passed props in the form:
 import React , { useState } from 'react'
 import Axios from 'axios';
 
-export default function UserExperience({bookInfo, userExperienceInfo}) {
+export default function ReaderExperience({bookInfo, readerExperienceInfo}) {
     const ratingOptions = ["1", "2", "3", "4", "5"];
-    let [ rating, setRating ] = useState(userExperienceInfo.rating);
-    let [ review, setReview ] = useState(userExperienceInfo.review);
-    let [ dateStarted, setDateStarted ] = useState(userExperienceInfo.date_started);
-    let [ dateFinished, setDateFinished ] = useState(userExperienceInfo.date_finished);
+    let [ rating, setRating ] = useState(readerExperienceInfo.rating);
+    let [ review, setReview ] = useState(readerExperienceInfo.review);
+    let [ dateStarted, setDateStarted ] = useState(readerExperienceInfo.date_started);
+    let [ dateFinished, setDateFinished ] = useState(readerExperienceInfo.date_finished);
 
     const handleRating = (e) => {
         setRating(e.target.value)
@@ -44,13 +44,13 @@ export default function UserExperience({bookInfo, userExperienceInfo}) {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        const userExperienceData = {
+        const readerExperienceData = {
             rating: rating,
             review: review,
             date_started: dateStarted,
             date_finished: dateFinished
         }
-        Axios.put(`${process.env.REACT_APP_SERVER_URL}/UserExperiences/${userExperienceInfo.id}`, userExperienceData)
+        Axios.put(`${process.env.REACT_APP_SERVER_URL}/ReaderExperiences/${readerExperienceInfo.id}`, readerExperienceData)
             .then(res => {
                 console.log(`Update response from backend: ${JSON.stringify(res)}`)
             })
