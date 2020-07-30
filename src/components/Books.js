@@ -41,6 +41,12 @@ export default function Books() {
             })
     }
 
+    const handleClear = (e) => {
+        e.preventDefault()
+        setBooks([])
+        setSearchParam()
+    }
+
     let displayBooks = books.map((book, key) => {
         let authors = book.volumeInfo.authors.map((author, key) => {
             return (
@@ -61,7 +67,7 @@ export default function Books() {
     return (
         <div>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <br></br>
                 <div>
                 <label>
@@ -71,12 +77,12 @@ export default function Books() {
                 </div>
                 <br></br>
                 <input type="submit" value="Submit" />
-                <button>Clear</button>
             </form>
             <p>----- Click a selection below to view more details -----</p>
             <div>
             {displayBooks}
             </div>
+            <button onClick={handleClear}>Clear</button>      
         </div>
         
     )
