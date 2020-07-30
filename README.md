@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Concept:
 
-In the project directory, you can run:
+Reading Buddy connects readers with their friends and even allows new friendships to be made through a shared love of books. Readers enjoy reviewing books and sharing their thoughts with the Reading Buddy community. A charming, relaxing online experience lets readers manage their book collection by keeping track of what’s important to them like the number of books they read last month and what books their friends are reading! Let’s be reading buddies!  📚
 
-### `npm start`
+### User Stories:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## As a user I can: 
+- Login to Reading Buddy 
+- Log out of Reading Buddy
+- See my profile on Reading Buddy
+- See how many books I’ve read
+  - This week
+  - This month
+- See my friends list
+- See all the reviews I’ve written
+- Search for books based on:
+  - Author
+  - Title
+  - Genre
+- See all the details about a book I’ve selected
+  - Author
+  - Title
+  - Genre
+  - Summary
+  - Reviews
+- Add a book to my “Have read”  list
+- Add a book to my  currently reading status
+- Indicate when I have finished reading a book
+- Write a summary for a book I have read
+  - Rating Scale of 1-5
+  - Text summary
+- Find Friends
+  - Add a Reading Buddy user to my friend list
+  - Remove a friend from friend list
+- See my Friends profile
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Wire Frames: 
 
-### `npm test`
+### The Team:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Coming Soon:
 
-### `npm run build`
+See books based on:
+Books my friends have read/reviewed
+Specifically based on: an author, title, or genre
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Filter the Book reviews page:
+Rating
+Recently reviewed
+Reviewed by your friends
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Accept/Decline a friend request
+Show page for Reviews (all)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
