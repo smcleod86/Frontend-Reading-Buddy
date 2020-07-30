@@ -72,43 +72,6 @@ function App() {
       <Router>
         <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated}/>
         <Switch>
-<<<<<<< HEAD
-        <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route exact path='/books'>
-            <Books />
-          </Route>
-          <Route exact path='/book/:id'>
-            <SearchBookDetails />
-          </Route>
-          <Route exact path='/profile'>
-            <Profile />
-          </Route>
-          <Route exact path='/register'>
-            <Register />
-          </Route>
-          <Route exact path='/login'>
-            <Login />
-          </Route>
-          <Route expact path='/profile/friends'>
-            <Profile />
-            <ProfileFriends />
-          </Route>
-          <Route expact path='/profile/reviews'>
-            <Profile />
-            <ProfileReviews />
-          </Route>
-          <Route expact path='/profile/haveread'>
-            <Profile />
-            <ProfileHaveRead />
-          </Route>
-          <Route expact path='/profile/wishlist'>
-            <Profile />
-            <ProfileWishlist/>
-=======
-
->>>>>>> b8a1f33563ff19ed38f254ea440bc78c8a29c6ed
           </Route>
           <Route exact path='/readerexperiences/edit'>
             <UserExperience 
