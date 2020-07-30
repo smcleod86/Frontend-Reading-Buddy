@@ -5,7 +5,7 @@ import {  useParams } from 'react-router-dom'
 export default function SearchBookDetails() {
     const [book, setBook] = useState({})
     const [error, setError] = useState(null);
-    // const [title, setTitle] = useState()
+    const [title, setTitle] = useState()
 
     let { id } = useParams()
 

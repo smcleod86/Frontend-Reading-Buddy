@@ -22,7 +22,7 @@ export default function Books() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchParam}`)
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchParam}&key=${process.env.REACT_APP_API_KEY}`)
             .then(response => {
                 // check the response is good
                 if (response.status === 200) {
@@ -55,7 +55,7 @@ export default function Books() {
         })
         return (
             <div>
-                <Link to={`/book/${book.id}`}>
+                <Link to={`/book/${book.id}?title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}`}>
                 Title: {book.volumeInfo.title} &nbsp;&nbsp;
                 Authors: {authors} &nbsp;&nbsp;
                 Published: {book.volumeInfo.publishedDate} 
