@@ -24,7 +24,7 @@ function ControlledCarusel() {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="http://placekitten.com/g/800/400"
+                src="http://placekitten.com/600/300"
                 alt="Third slide"
                 />
 
@@ -36,7 +36,7 @@ function ControlledCarusel() {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="http://placekitten.com/g/800/400"
+                src="http://placekitten.com/g/1000/500"
                 alt="Third slide"
                 />
 
@@ -48,7 +48,7 @@ function ControlledCarusel() {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="http://placekitten.com/g/800/400"
+                src="http://placekitten.com/500/250"
                 alt="Fourth slide"
                 />
                 <Carousel.Caption>
