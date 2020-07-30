@@ -11,7 +11,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import Login from './components/Login';
-import UserExperience from './components/UserExperience';
+import ReaderExperience from './components/ReaderExperience';
 
 import FindFriends from './components/FindFriends';
 
@@ -21,6 +21,7 @@ import ProfileFriends from './components/profile_components/ProfileFriends';
 import ProfileReviews from './components/profile_components/ProfileReviews';
 import ProfileHaveRead from './components/profile_components/ProfileHaveRead';
 import ProfileWishlist from './components/profile_components/ProfileWishlist';
+import Axios from 'axios';
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -37,6 +38,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App() {
   let [currentUser, setCurrentUser] = useState("")
   let [isAuthenticated, setIsAuthenticated] = useState(true)
+  let [profileInfo, setProfileInfo] = useState({})
 
   useEffect(() => {
     let token;
@@ -73,41 +75,43 @@ function App() {
         <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated}/>
         <Switch>
           <Route exact path='/readerexperiences/edit'>
-            <UserExperience 
+            <ReaderExperience 
               bookInfo={{title: "The Fellowship of the Ring", author: "JRR Tolkien", genre: "nonfiction", summary: "a teenager goes on a walk barefoot"}} 
-              userExperienceInfo={{rating: "3", review: "That was a dreadful idea", date_started: "2020-04-02", date_finished: "2020-04-20"}}
+              readerExperienceInfo={{rating: "3", review: "That was a dreadful idea", date_started: "2020-04-02", date_finished: "2020-04-20"}}
             />
           </Route>
   
           <Route exact path='/users'>
-            <FindFriends />
+            <FindFriends currentUser={currentUser}/>
           </Route>
 
           <Route path='/books' component = {Books} />
           <Route exact path='/book/:id' component = {SearchBookDetails} />
-          <Route exact path='/profile' component = {Profile} />
+          <Route exact path='/profile/:id'>
+            <Profile profileInfo={profileInfo} setProfileInfo={setProfileInfo} currentUser={currentUser} />
+          </Route>
           <Route path='/register' component = {Register} />
           <Route path='/login' render ={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
           {/* <PrivateRoute path='/profile' render = {(props) => <Profile {...props} user={currentUser} /> }/> */}
 
           <Route exact path='/profile/friends'>
-            <Profile user={currentUser} />
-            <ProfileFriends />
+            <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
+            <ProfileFriends profileInfo={profileInfo} />
           </Route>
 
           <Route path='/profile/reviews'>
-            <Profile user={currentUser} /> 
-            <ProfileReviews />
+            <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} /> 
+            <ProfileReviews profileInfo={profileInfo} />
           </Route>
 
           <Route path='/profile/haveread'>
-            <Profile user={currentUser}/> 
-            <ProfileHaveRead /> 
+            <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser}/> 
+            <ProfileHaveRead profileInfo={profileInfo} /> 
           </Route>
 
           <Route path='/profile/wishlist'>
-            <Profile user={currentUser} />
-            <ProfileWishlist />
+            <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
+            <ProfileWishlist profileInfo={profileInfo} />
           </Route>
 
           <Route path='/' exact component={Home} />

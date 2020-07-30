@@ -7,7 +7,6 @@ export default function SearchBookDetails() {
     const [error, setError] = useState(null);
     const [reviews, setReviews] = useState([]);
     const [status, setStatus] = useState('');
-    
 
     let { id } = useParams()
 

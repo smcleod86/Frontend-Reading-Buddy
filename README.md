@@ -1,11 +1,12 @@
-
-### Concept:
+# Frontend-Reading-Buddy
+[View our Backend reop!](https://github.com/Emily-Rose-K/Backend-Reading-Buddy)
+## Concept:
 
 Reading Buddy connects readers with their friends and even allows new friendships to be made through a shared love of books. Readers enjoy reviewing books and sharing their thoughts with the Reading Buddy community. A charming, relaxing online experience lets readers manage their book collection by keeping track of what’s important to them like the number of books they read last month and what books their friends are reading! Let’s be reading buddies!  📚
 
-### User Stories:
+## User Stories:
 
-## As a user I can: 
+### As a user I can: 
 - Login to Reading Buddy 
 - Log out of Reading Buddy
 - See my profile on Reading Buddy
@@ -35,21 +36,23 @@ Reading Buddy connects readers with their friends and even allows new friendship
   - Remove a friend from friend list
 - See my Friends profile
 
-### Wire Frames: 
+## Wire Frames: 
 
-### The Team:
+[Invisionapp!](https://scott772250.invisionapp.com/freehand/Tis-A-Fire-Upon-the-Hobbit-XtJaN58Rg)
 
+## The Team:
+![The Team](./public/Team.png?raw=true)
 ### Coming Soon:
 
-See books based on:
-Books my friends have read/reviewed
-Specifically based on: an author, title, or genre
+- See books based on:
+  - Books my friends have read/reviewed
+  - Specifically based on: an author, title, or genre
 
-Filter the Book reviews page:
-Rating
-Recently reviewed
-Reviewed by your friends
+- Filter the Book reviews page:
+  - Rating
+  - Recently reviewed
+  - Reviewed by your friends
 
-Accept/Decline a friend request
-Show page for Reviews (all)
+- Accept/Decline a friend request
+- Show page for Reviews (all)
 
