@@ -11,7 +11,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import Login from './components/Login';
-import UserExperience from './components/UserExperience';
+import ReaderExperience from './components/ReaderExperience';
 
 import FindFriends from './components/FindFriends';
 
@@ -73,9 +73,9 @@ function App() {
         <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated}/>
         <Switch>
           <Route exact path='/readerexperiences/edit'>
-            <UserExperience 
+            <ReaderExperience 
               bookInfo={{title: "The Fellowship of the Ring", author: "JRR Tolkien", genre: "nonfiction", summary: "a teenager goes on a walk barefoot"}} 
-              userExperienceInfo={{rating: "3", review: "That was a dreadful idea", date_started: "2020-04-02", date_finished: "2020-04-20"}}
+              readerExperienceInfo={{rating: "3", review: "That was a dreadful idea", date_started: "2020-04-02", date_finished: "2020-04-20"}}
             />
           </Route>
   

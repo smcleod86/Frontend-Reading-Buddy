@@ -22,7 +22,7 @@ export default function Books() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchParam}`)
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchParam}&key=${process.env.REACT_APP_API_KEY}`)
             .then(response => {
                 // check the response is good
                 if (response.status === 200) {
