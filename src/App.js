@@ -11,12 +11,11 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Register from './components/Register';
 import Login from './components/Login';
-
 import UserExperience from './components/UserExperience';
+
 import FindFriends from './components/FindFriends';
 
 import Footer from './components/Footer';
-
 import SearchBookDetails from './components/SearchBookDetails';
 import ProfileFriends from './components/profile_components/ProfileFriends';
 import ProfileReviews from './components/profile_components/ProfileReviews';
@@ -89,11 +88,28 @@ function App() {
           <Route exact path='/profile' component = {Profile} />
           <Route path='/register' component = {Register} />
           <Route path='/login' render ={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
-          <PrivateRoute path='/profile' component = {Profile} user={currentUser} />
-          <PrivateRoute path='/profile/friends' component = {Profile, ProfileFriends} user={currentUser} />
-          <PrivateRoute path='/profile/reviews' component = {Profile, ProfileReviews} user={currentUser} />
-          <PrivateRoute path='/profile/haveread' component = {Profile, ProfileHaveRead} user={currentUser} />
-          <PrivateRoute path='/profile/wishlist' component = {Profile, ProfileWishlist} user={currentUser} />
+          {/* <PrivateRoute path='/profile' render = {(props) => <Profile {...props} user={currentUser} /> }/> */}
+
+          <Route exact path='/profile/friends'>
+            <Profile user={currentUser} />
+            <ProfileFriends />
+          </Route>
+
+          <Route path='/profile/reviews'>
+            <Profile user={currentUser} /> 
+            <ProfileReviews />
+          </Route>
+
+          <Route path='/profile/haveread'>
+            <Profile user={currentUser}/> 
+            <ProfileHaveRead /> 
+          </Route>
+
+          <Route path='/profile/wishlist'>
+            <Profile user={currentUser} />
+            <ProfileWishlist />
+          </Route>
+
           <Route path='/' exact component={Home} />
 
         </Switch>
