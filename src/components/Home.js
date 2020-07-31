@@ -17,8 +17,8 @@ function ControlledCarusel() {
                 alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h3>Connect With Freinds!</h3>
-                    <p>Find your freinds and see what books interest them as well as reviews they have written!</p>
+                    <h3>Connect With Friends!</h3>
+                    <p>Find your friends and see what books interest them as well as reviews they have written!</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
