@@ -5,32 +5,48 @@ import { Link } from 'react-router-dom';
 export default function Books() {
     const [books, setBooks] = useState([]);
     const [error, setError] = useState(null);
-    const [searchParam, setSearchParam] = useState()
+    const [title, setTitle] = useState()
+    const [author, setAuthor] = useState()
 
-    const handleSearch = (e) => {
-        console.log(e.target.value)
-        setSearchParam(e.target.value)
+    const handleTitle = (e) => {
+        setTitle(e.target.value)
+    }
+    const handleAuthor = (e) => {
+        setAuthor(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.get(`https://www.googleapis.com/books/v1/volumes?key=${process.env.REACT_APP_API_KEY}&q=${searchParam}`)
-            .then(response => {
-                // check the response is good
-                if (response.status === 200) {
-                    // set books equal to 
-                    console.log("Hitting the search data now", response.data)
-                    console.log("data.items", response.data.items)
-                    setBooks(response.data.items) 
-                } else {
-                    setError(response.statusText)
-                }
-                console.log(response)
-                console.log("🎯🎯🎯🎯🎯")
-            })
-            .catch(err => {
-                setError(err.message)
-            })
+        let query = "";
+        if (title && author) {
+            query = `title=${title}&author=${author}`;
+        } else {
+            if (title) { query = `title=${title}` };
+            if (author) { query = `author=${author}` };
+        }
+        if (query) {
+            console.log(`Sending axios call to ${process.env.REACT_APP_SERVER_URL}/users?${query}`)
+        }
+
+
+
+        // axios.get(`https://www.googleapis.com/books/v1/volumes?key=${process.env.REACT_APP_API_KEY}&q=${searchParam}`)
+        //     .then(response => {
+        //         // check the response is good
+        //         if (response.status === 200) {
+        //             // set books equal to 
+        //             console.log("Hitting the search data now", response.data)
+        //             console.log("data.items", response.data.items)
+        //             setBooks(response.data.items) 
+        //         } else {
+        //             setError(response.statusText)
+        //         }
+        //         console.log(response)
+        //         console.log("🎯🎯🎯🎯🎯")
+        //     })
+        //     .catch(err => {
+        //         setError(err.message)
+        //     })
     }
 
     const handleClear = (e) => {
@@ -62,9 +78,11 @@ export default function Books() {
             <form onSubmit={handleSubmit} >
                 <br></br>
                 <div>
-                <label>
-                    Search for books:
-                    <input type="search" placeholder="Search Parameter" onChange={handleSearch} />
+                <label htmlFor="title"> Search by book titles:
+                    <input type="text" id="title" name="tilte"  onChange={handleTitle} />
+                </label>
+                <label htmlFor="author"> Search by author name:
+                    <input type="text" id="author" name="author" onChange={handleAuthor} />
                 </label>
                 </div>
                 <br></br>
