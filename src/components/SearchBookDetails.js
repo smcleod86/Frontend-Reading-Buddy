@@ -5,7 +5,8 @@ import {  useParams } from 'react-router-dom'
 export default function SearchBookDetails() {
     const [book, setBook] = useState({})
     const [error, setError] = useState(null);
-    const [reviews, setReviews] = useState([])
+    const [reviews, setReviews] = useState([]);
+    const [status, setStatus] = useState('');
 
     let { id } = useParams()
 
@@ -28,7 +29,7 @@ export default function SearchBookDetails() {
             .catch(err => {
                 setError(err.message)
             })
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/books/${id}`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/books/${id}?title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}`)
             .then(response => {
                 if (response.status === 200) {
                     console.log(response.data)
@@ -55,6 +56,21 @@ export default function SearchBookDetails() {
             </div>
         )
     })
+    let handleWishlist = (e) => {
+        e.preventDefault()
+        setStatus('wishlist')
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
+    }
+    let handleCurrentlyReading = (e) => {
+        e.preventDefault()
+        setStatus('started')
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
+    }
+    let handleHaveRead = (e) => {
+        e.preventDefault()
+        setStatus('finished')
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
+    }
 
 
     return (
@@ -68,6 +84,11 @@ export default function SearchBookDetails() {
                 <p>Description: {book.volumeInfo.description}</p>
                 <p>Page Count: {book.volumeInfo.pageCount}</p>
                 <p>Average Rating: {book.volumeInfo.averageRating}</p>
+                <form>
+                    <button onClick={handleWishlist}>Wishlist</button>
+                    <button onClick={handleCurrentlyReading}>Curerently Reading</button>
+                    <button onClick={handleHaveRead}>Have Read</button>
+                </form>
             </div>
             <div>
                 {displayReviews}
