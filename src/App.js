@@ -61,20 +61,21 @@ function App() {
   let handleLogout = () => {
     if(localStorage.getItem('jwtToken') !== null) {
       localStorage.removeItem('jwtToken');
-      setCurrentUser(null);
+      setCurrentUser("");
       setIsAuthenticated(false);
     }
   }
 
   console.log('Current User = ', currentUser);
   console.log('Authenticated = ', isAuthenticated);
+  console.log(profileInfo)
 
   return (
     <div className="App">
       <Router>
         <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated} currentUser={currentUser}/>
         <Switch>
-          <Route exact path='/readerexperiences/edit'>
+          <Route exact path='/readerexperiences/:id/edit'>
             <ReaderExperience 
               bookInfo={{title: "The Fellowship of the Ring", author: "JRR Tolkien", genre: "nonfiction", summary: "a teenager goes on a walk barefoot"}} 
               readerExperienceInfo={{rating: "3", review: "That was a dreadful idea", date_started: "2020-04-02", date_finished: "2020-04-20"}}
