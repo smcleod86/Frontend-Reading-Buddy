@@ -18,7 +18,7 @@ function ControlledCarusel() {
                 />
                 <Carousel.Caption>
                     <h3>Connect With Freinds!</h3>
-                    <p>Find your freinds and see what books interest them as well as reviews they have written!</p>
+                    <p>Find your friends and see what books interest them as well as reviews they have written!</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
