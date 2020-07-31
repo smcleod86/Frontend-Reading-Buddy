@@ -1,10 +1,10 @@
 import React, { useEffect, useReducer, useRefresh, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ProfileFriends from '../components/profile_components/ProfileFriends'
+// import ProfileFriends from '../components/profile_components/ProfileFriends'
 import axios from 'axios'
 
 export default function Profile(props) {
-    const [friends, setFriends] = useState([])
+    //const [friends, setFriends] = useState([])
     const [error, setError] = useState(null)
     const [refresh, setRefresh] = useState(false)
     let { id } = useParams()
