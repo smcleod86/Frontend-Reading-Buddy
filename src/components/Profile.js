@@ -26,8 +26,6 @@ export default function Profile(props) {
             })
     }, [id]) 
 
-    console.log(props.profileInfo)
-
     return (
         <div>
             {props.currentUser.user_name}

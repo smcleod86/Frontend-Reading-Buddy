@@ -13,47 +13,36 @@ function ControlledCarusel() {
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="http://placekitten.com/g/800/400"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRJh3Kh0YwpZVdb0iSd9xcXSmdjzyCeED63uA&usqp=CAU"
                 alt="First slide"
                 />
                 <Carousel.Caption>
                     <h3>Connect With Freinds!</h3>
-                    <p>Search for your freinds by their Username and see what books interest them, as well as reviews they have written for books!</p>
+                    <p>Find your freinds and see what books interest them as well as reviews they have written!</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="http://placekitten.com/600/300"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRJh3Kh0YwpZVdb0iSd9xcXSmdjzyCeED63uA&usqp=CAU"
                 alt="Third slide"
                 />
 
                 <Carousel.Caption>
                     <h3>Keep Track of Your Reads!</h3>
-                    <p>Reading Buddy is great for helping you keep track of the books you have read, and helps you find new ones based on your friends!</p>
+                    <p>Keep track of the books you have read and find new ones based on your friends recommendations!</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
                 <img
                 className="d-block w-100"
-                src="http://placekitten.com/g/1000/500"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRJh3Kh0YwpZVdb0iSd9xcXSmdjzyCeED63uA&usqp=CAU"
                 alt="Third slide"
                 />
 
                 <Carousel.Caption>
                     <h3>Share Your Opinions and Start A Discussion!</h3>
-                    <p>Read User created reviews of books that they have read and write your own to join the conversation!</p>
-                </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-                <img
-                className="d-block w-100"
-                src="http://placekitten.com/500/250"
-                alt="Fourth slide"
-                />
-                <Carousel.Caption>
-                    <h3>Explore a Collection of over 700,000 Titles</h3>
-                    <p>Reading Buddy was intended a virtual book recommendation library to help people keep track of what they have read and help them make an informed decision about what to read next.</p>
+                    <p>Read reviews written by the Reading Buddy community of books and write your own to join the conversation!</p>
                 </Carousel.Caption>
             </Carousel.Item>
         </Carousel>
@@ -63,6 +52,11 @@ function ControlledCarusel() {
 
 export default function Home() {
     return (
-       <ControlledCarusel />
+        <>
+            <ControlledCarusel />
+            <div className="title">
+                <h1>Welcome to Reading Buddy</h1>
+            </div>
+        </>
     )
 }
