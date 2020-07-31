@@ -50,7 +50,7 @@ export default function ReaderExperience({bookInfo, readerExperienceInfo}) {
             date_started: dateStarted,
             date_finished: dateFinished
         }
-        Axios.put(`${process.env.REACT_APP_SERVER_URL}/ReaderExperiences/${readerExperienceInfo.id}`, readerExperienceData)
+        Axios.put(`${process.env.REACT_APP_SERVER_URL}ReaderExperiences/${readerExperienceInfo.id}`, readerExperienceData)
             .then(res => {
                 console.log(`Update response from backend: ${JSON.stringify(res)}`)
             })

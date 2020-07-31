@@ -12,7 +12,7 @@ export default function Profile(props) {
     useEffect(() => {
         console.log("in profile.js useEffect")
         setRefresh(false)
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${id}`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}users/${id}`)
             .then(response => {
                 if (response.status === 200) {
                     props.setProfileInfo(response.data)
