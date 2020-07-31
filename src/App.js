@@ -72,7 +72,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated}/>
+        <Navbar  handleLogout={handleLogout} isAuthed={isAuthenticated} currentUser={currentUser}/>
         <Switch>
           <Route exact path='/readerexperiences/edit'>
             <ReaderExperience 
@@ -94,22 +94,22 @@ function App() {
           <Route path='/login' render ={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
           {/* <PrivateRoute path='/profile' render = {(props) => <Profile {...props} user={currentUser} /> }/> */}
 
-          <Route exact path='/profile/friends'>
+          <Route exact path={`/profile/${currentUser.id}/friends`}>
             <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
             <ProfileFriends profileInfo={profileInfo} />
           </Route>
 
-          <Route path='/profile/reviews'>
+          <Route path={`/profile/${currentUser.id}/reviews`}>
             <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} /> 
             <ProfileReviews profileInfo={profileInfo} />
           </Route>
 
-          <Route path='/profile/haveread'>
+          <Route path={`/profile/${currentUser.id}/wishlist`}>
             <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser}/> 
             <ProfileHaveRead profileInfo={profileInfo} /> 
           </Route>
 
-          <Route path='/profile/wishlist'>
+          <Route path={`/profile/${currentUser.id}/haveread`}>
             <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
             <ProfileWishlist profileInfo={profileInfo} />
           </Route>

@@ -15,7 +15,7 @@ const Navbar = (props) => {
                         props.isAuthed
                         ? <ul className="nav-items">
                             <li className="nav-item">
-                                <NavLink className="nav-link" to = '/profile'>Profile</NavLink>
+                                <NavLink className="nav-link" to = {`/profile/${props.currentUser.id}`}> Profile </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to = "/books" >Books</NavLink>

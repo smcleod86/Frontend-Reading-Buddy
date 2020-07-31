@@ -33,10 +33,10 @@ export default function Profile(props) {
             <p>Number of books read this week: {Math.floor(Math.random() * 3)} </p>
             <p>Number of books read this month: {Math.floor(Math.random() * 10)}  </p>
             <p>Currently reading: </p>
-            <a href='/profile/:id/friends'>Friends</a><br></br>
-            <a href='/profile/:id/reviews'>Reviews</a><br></br>
-            <a href='/profile/:id/wishlist'>Wishlist</a><br></br>
-            <a href='/profile/:id/haveread'>Books I've Read</a><br></br>
+            <a href={`/profile/${props.currentUser.id}/friends`}>Friends</a><br></br>
+            <a href={`/profile/${props.currentUser.id}/reviews`}>Reviews</a><br></br>
+            <a href={`/profile/${props.currentUser.id}/wishlist`}>Wishlist</a><br></br>
+            <a href={`/profile/${props.currentUser.id}/haveread`}>Books I've Read</a><br></br>
         </div>
     )
 }
