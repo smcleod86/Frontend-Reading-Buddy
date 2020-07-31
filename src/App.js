@@ -96,7 +96,7 @@ function App() {
 
           <Route exact path='/profile/friends'>
             <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
-            <ProfileFriends profileInfo={profileInfo} />
+            <ProfileFriends currentUser={currentUser} profileInfo={profileInfo} />
           </Route>
 
           <Route path='/profile/reviews'>

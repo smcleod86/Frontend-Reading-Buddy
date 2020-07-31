@@ -1,15 +1,12 @@
-
 import React, { useEffect, useReducer, useRefresh, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ProfileFriends from '../components/profile_components/ProfileFriends'
-
+// import ProfileFriends from '../components/profile_components/ProfileFriends'
 import axios from 'axios'
 
 export default function Profile(props) {
-    const [friends, setFriends] = useState([])
+    //const [friends, setFriends] = useState([])
     const [error, setError] = useState(null)
     const [refresh, setRefresh] = useState(false)
-
     let { id } = useParams()
 
     useEffect(() => {
@@ -28,18 +25,17 @@ export default function Profile(props) {
                 setError(err.message)
             })
     }, [id]) 
+
     return (
         <div>
             <p>Number of books read this week: {Math.floor(Math.random() * 3)} </p>
             <p>Number of books read this month: {Math.floor(Math.random() * 10)}  </p>
             <p>Currently reading: </p>
-            <a href='/profile/friends'>See my Friends List</a><br></br>
-            <a href='/profile/reviews'>See my Reviews</a><br></br>
-            <a href='/profile/wishlist'>Want to read</a><br></br>
-            <a href='/profile/haveread'>Have read</a>
+            <a href='/profile/:id/friends'>See my Friends List</a><br></br>
+            <a href='/profile/:id/reviews'>See my Reviews</a><br></br>
+            <a href='/profile/:id/wishlist'>Want to read</a><br></br>
+            <a href='/profile/:id/haveread'>Have read</a>
             {JSON.stringify(props)}
         </div>
     )
 }
-
-

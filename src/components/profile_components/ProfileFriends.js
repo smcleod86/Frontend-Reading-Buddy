@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ProfileFriends() {
+export default function ProfileFriends(props) {
 
     
     return(
