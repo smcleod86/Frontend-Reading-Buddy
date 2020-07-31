@@ -22,6 +22,7 @@ import ProfileReviews from './components/profile_components/ProfileReviews';
 import ProfileHaveRead from './components/profile_components/ProfileHaveRead';
 import ProfileWishlist from './components/profile_components/ProfileWishlist';
 import Axios from 'axios';
+import { Link } from 'react-router-dom'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -38,7 +39,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App() {
   let [currentUser, setCurrentUser] = useState("")
   let [isAuthenticated, setIsAuthenticated] = useState(true)
-  let [profileInfo, setProfileInfo] = useState([{}])
+  let [profileInfo, setProfileInfo] = useState({})
 
   useEffect(() => {
     let token;
@@ -97,7 +98,7 @@ function App() {
 
           <Route exact path={`/profile/${currentUser.id}/friends`}>
             <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
-            <ProfileFriends profileInfo={profileInfo} />
+            <ProfileFriends profileInfo={profileInfo} currentUser={currentUser}/>
           </Route>
 
           <Route path={`/profile/${currentUser.id}/reviews`}>
