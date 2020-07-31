@@ -1,5 +1,5 @@
 # Frontend-Reading-Buddy
-[View our Backend reop!](https://github.com/Emily-Rose-K/Backend-Reading-Buddy)
+[View our Backend repo!](https://github.com/Emily-Rose-K/Backend-Reading-Buddy)
 ## Concept:
 
 Reading Buddy connects readers with their friends and even allows new friendships to be made through a shared love of books. Readers enjoy reviewing books and sharing their thoughts with the Reading Buddy community. A charming, relaxing online experience lets readers manage their book collection by keeping track of what’s important to them like the number of books they read last month and what books their friends are reading! Let’s be reading buddies!  📚
