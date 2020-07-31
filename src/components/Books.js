@@ -52,7 +52,7 @@ export default function Books() {
     const handleClear = (e) => {
         e.preventDefault()
         setBooks([])
-        setSearchParam()
+        //setSearchParam()
     }
 
     let displayBooks = books.map((book, key) => {
