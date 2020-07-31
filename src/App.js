@@ -22,6 +22,7 @@ import ProfileReviews from './components/profile_components/ProfileReviews';
 import ProfileHaveRead from './components/profile_components/ProfileHaveRead';
 import ProfileWishlist from './components/profile_components/ProfileWishlist';
 import Axios from 'axios';
+import { Link } from 'react-router-dom'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -61,7 +62,7 @@ function App() {
   let handleLogout = () => {
     if(localStorage.getItem('jwtToken') !== null) {
       localStorage.removeItem('jwtToken');
-      setCurrentUser(null);
+      setCurrentUser("");
       setIsAuthenticated(false);
     }
   }
