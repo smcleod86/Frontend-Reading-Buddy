@@ -25,9 +25,6 @@ export default function Profile(props) {
                 setError(err.message)
             })
     }, [id]) 
-
-    console.log(props.profileInfo)
-
     return (
         <div>
             {props.currentUser.user_name}

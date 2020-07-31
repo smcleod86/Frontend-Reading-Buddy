@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.tales {
+  width: 100%;
+}
+.carousel-inner{
+  width:100%;
+  max-height: 500px !important;
+}
+
+.carousel-caption{
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}

@@ -39,7 +39,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App() {
   let [currentUser, setCurrentUser] = useState("")
   let [isAuthenticated, setIsAuthenticated] = useState(true)
-  let [profileInfo, setProfileInfo] = useState([{}])
+  let [profileInfo, setProfileInfo] = useState({})
 
   useEffect(() => {
     let token;
@@ -97,7 +97,7 @@ function App() {
 
           <Route exact path={`/profile/${currentUser.id}/friends`}>
             <Profile setProfileInfo={setProfileInfo} profileInfo={profileInfo} currentUser={currentUser} />
-            <ProfileFriends currentUser={currentUser} profileInfo={profileInfo} />
+            <ProfileFriends profileInfo={profileInfo} currentUser={currentUser}/>
           </Route>
 
           <Route path={`/profile/${currentUser.id}/reviews`}>
