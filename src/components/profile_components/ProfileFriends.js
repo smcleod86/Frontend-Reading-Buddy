@@ -7,7 +7,6 @@ export default function ProfileFriends(props) {
         <div>
             <h1> look at all my friends!! </h1>
             {props.currentUser.friends}
-
         </div>
     )
 }
