@@ -30,7 +30,7 @@ export default function SearchBookDetails() {
             .catch(err => {
                 setError(err.message)
             })
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/books/${id}?title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}`)
+        axios.get(`${process.env.REACT_APP_SERVER_URL}books/${id}?title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}`)
             .then(response => {
                 if (response.status === 200) {
                     console.log(response.data)
@@ -60,17 +60,17 @@ export default function SearchBookDetails() {
     let handleWishlist = (e) => {
         e.preventDefault()
         setStatus('wishlist')
-        axios.post(`${process.env.REACT_APP_SERVER_URL}/readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
+        axios.post(`${process.env.REACT_APP_SERVER_URL}readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
     }
     let handleCurrentlyReading = (e) => {
         e.preventDefault()
         setStatus('started')
-        axios.post(`${process.env.REACT_APP_SERVER_URL}/readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
+        axios.post(`${process.env.REACT_APP_SERVER_URL}readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
     }
     let handleHaveRead = (e) => {
         e.preventDefault()
         setStatus('finished')
-        axios.post(`${process.env.REACT_APP_SERVER_URL}/readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
+        axios.post(`${process.env.REACT_APP_SERVER_URL}readerExperiences?status=${status}&title=${book.volumeInfo.title}&author=${book.volumeInfo.authors[0]}&image_url=${book.volumeInfo.imageLinks.thumbnail}&description=${book.volumeInfo.description}`)
     }
 
 
