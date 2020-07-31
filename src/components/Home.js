@@ -53,10 +53,10 @@ function ControlledCarusel() {
 export default function Home() {
     return (
         <>
-       <ControlledCarusel />
-       <div className="title">
-        <h1>Welcome to Reading Buddy</h1>
-       </div>
-       </>
+            <ControlledCarusel />
+            <div className="title">
+                <h1>Welcome to Reading Buddy</h1>
+            </div>
+        </>
     )
 }
