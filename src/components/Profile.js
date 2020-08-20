@@ -15,7 +15,19 @@ export default function Profile(props) {
         axios.get(`${process.env.REACT_APP_SERVER_URL}users/${id}`)
             .then(response => {
                 if (response.status === 200) {
-                    props.setProfileInfo(response.data)
+                    props.setUserInfo({
+                        _id: response.data.user._id,
+                        first_name: response.data.user.first_name,
+                        last_name: response.data.user.last_name,
+                        user_name: response.data.user.user_name,
+                        email: response.data.user.email
+                    })
+                    props.setUserReaderExperiences(response.data.user.readerExperiences)
+                    props.setUserFriends(response.data.user.friends)
+                    let theseUserBooks = response.data.user.readerExperiences.map(readerExperience => {
+                        return readerExperience.book;
+                    });
+                    props.setUserBooks(theseUserBooks)
                 } else {
                     setError(response.statusText)
                 }
@@ -25,6 +37,9 @@ export default function Profile(props) {
                 setError(err.message)
             })
     }, [id]) 
+    if (!props.userInfo){
+        return null;
+    }
     return (
         <div>
             {props.currentUser.user_name}
@@ -36,6 +51,10 @@ export default function Profile(props) {
             <a href={`/profile/${props.currentUser.id}/reviews`}>Reviews</a><br></br>
             <a href={`/profile/${props.currentUser.id}/wishlist`}>Wishlist</a><br></br>
             <a href={`/profile/${props.currentUser.id}/haveread`}>Books I've Read</a><br></br>
+            <p>USERINFO: {JSON.stringify(props.userInfo)}</p>
+            <p>READEREXPERIENCES: {JSON.stringify(props.userReaderExperiences)}</p>
+            <p>BOOKS: {JSON.stringify(props.userBooks)}</p>
+            <p>FRIENDS: {JSON.stringify(props.userFriends)}</p>
         </div>
     )
 }
