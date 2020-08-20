@@ -39,7 +39,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 function App() {
   let [currentUser, setCurrentUser] = useState("")
   let [isAuthenticated, setIsAuthenticated] = useState(true)
-  let [profileInfo, setProfileInfo] = useState({})
+  let [profileInfo, setProfileInfo] = useState({})  // phase this out
+  let [userInfo, setUserInfo] = useState({})
+  let [userReaderExperiences, setUserReaderExperiences] = useState({})
+  let [userBooks, setUserBooks] = useState({})
+  let [userFriends, setUserFriends] = useState({})
 
   useEffect(() => {
     let token;
@@ -69,7 +73,6 @@ function App() {
 
   console.log('Current User = ', currentUser);
   console.log('Authenticated = ', isAuthenticated);
-  console.log(profileInfo)
 
   return (
     <div className="App">
@@ -90,7 +93,17 @@ function App() {
           <Route path='/books' component = {Books} />
           <Route exact path='/book/:id' component = {SearchBookDetails} />
           <Route exact path='/profile/:id'>
-            <Profile profileInfo={profileInfo} setProfileInfo={setProfileInfo} currentUser={currentUser} />
+            <Profile 
+              userInfo={userInfo} 
+              setUserInfo={setUserInfo}
+              userReaderExperiences={userReaderExperiences} 
+              setUserReaderExperiences={setUserReaderExperiences}
+              userBooks={userBooks} 
+              setUserBooks={setUserBooks}
+              userFriends={userFriends}
+              setUserFriends={setUserFriends}
+              currentUser={currentUser} 
+            />
           </Route>
           <Route path='/register' component = {Register} />
           <Route path='/login' render ={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} /> } />
